@@ -14,7 +14,10 @@ public class Router {
     @Bean
     public RouterFunction<ServerResponse> route(Handler handler) {
         return RouterFunctions
-                .route(RequestPredicates.GET("/persons"), handler::handleGetPersonsRequest);
+                .route(RequestPredicates.GET("/persons"), handler::handleGetPersonsRequest)
+                .andRoute(RequestPredicates.PATCH("/persons/{id}"), handler::handleUpdatePersonRequest)
+                .andRoute(RequestPredicates.POST("/persons"), handler::handleCreatePersonRequest)
+                .andRoute(RequestPredicates.DELETE("/persons/{id}"), handler::handleDeletePersonRequest);
     }
 
 }

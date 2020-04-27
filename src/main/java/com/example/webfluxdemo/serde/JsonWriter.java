@@ -6,11 +6,11 @@ import reactor.core.publisher.Mono;
 
 public class JsonWriter {
 
-    private static final ObjectMapper JSON = new ObjectMapper();
+    private static final ObjectMapper mapper = new ObjectMapper();
 
     public static Mono<String> write(Object value) {
         try {
-            return Mono.just(JsonWriter.JSON.writeValueAsString(value));
+            return Mono.just(JsonWriter.mapper.writeValueAsString(value));
         } catch (JsonProcessingException e) {
             return Mono.error(e);
         }

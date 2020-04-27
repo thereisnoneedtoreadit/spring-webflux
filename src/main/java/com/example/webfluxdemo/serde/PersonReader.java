@@ -16,7 +16,7 @@ public class PersonReader {
             final JsonNode node = mapper.readTree(value);
 
             return Optional.of(new Person(
-                    node.get("id").asText(),
+                    node.get("id").asLong(),
                     node.get("firstName").asText(),
                     node.get("familyName").asText(),
                     node.get("age").asInt()
