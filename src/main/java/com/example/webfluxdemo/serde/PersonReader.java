@@ -1,10 +1,9 @@
 package com.example.webfluxdemo.serde;
 
 import com.example.webfluxdemo.model.Person;
-import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.IOException;
 import java.util.Optional;
 
 public class PersonReader {
@@ -13,15 +12,8 @@ public class PersonReader {
 
     public static Optional<Person> read(String value) {
         try {
-            final JsonNode node = mapper.readTree(value);
-
-            return Optional.of(new Person(
-                    node.get("id").asLong(),
-                    node.get("firstName").asText(),
-                    node.get("familyName").asText(),
-                    node.get("age").asInt()
-            ));
-        } catch (IOException e) {
+            return Optional.of(mapper.readValue(value, Person.class));
+        } catch (JsonProcessingException e) {
             return Optional.empty();
         }
     }
