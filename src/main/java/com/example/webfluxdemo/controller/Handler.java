@@ -1,4 +1,4 @@
-package com.example.webfluxdemo.handler;
+package com.example.webfluxdemo.controller;
 
 import com.example.webfluxdemo.exception.AlreadyExistsException;
 import com.example.webfluxdemo.exception.InvalidRequestBodyException;

@@ -1,6 +1,5 @@
-package com.example.webfluxdemo.configuration.router;
+package com.example.webfluxdemo.controller;
 
-import com.example.webfluxdemo.handler.Handler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RequestPredicates;
